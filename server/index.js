@@ -9,6 +9,7 @@ const port = 2112;
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.use('/media', createProxyMiddleware({ target: 'http://13.57.57.14:8000', changeOrigin: true}));
+app.use('/loaderio-2f08170c14abca4b411bb438270ad488', createProxyMiddleware({ target: 'http://54.193.66.30:2112', changeOrigin: true}));
 
 // const mediaProxy = createProxyMiddleware({
 //   target: 'http://13.57.57.14:8000/',
@@ -38,7 +39,7 @@ app.use('/media', createProxyMiddleware({ target: 'http://13.57.57.14:8000', cha
 
 // app.use('/mainbody', bodyProxy);
 
-app.get('/loaderio-4b3718784fc1542b18ab3d2134f121fe/', (req, res) => {
+app.get('/loaderio-2f08170c14abca4b411bb438270ad488/', (req, res) => {
   const callback = (err, data) => {
     if (err) {
       res.status(404).json(err);
@@ -46,7 +47,7 @@ app.get('/loaderio-4b3718784fc1542b18ab3d2134f121fe/', (req, res) => {
       res.status(200).json(data);
     }
   };  
-  res.sendFile('/loaderio-4b3718784fc1542b18ab3d2134f121fe.txt', callback);
+  res.sendFile('/loaderio-2f08170c14abca4b411bb438270ad488.txt', callback);
 });
 
 
